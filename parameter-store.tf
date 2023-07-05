@@ -10,11 +10,14 @@ resource "aws_iam_policy" "parameter-store-serviceaccount-policy" {
       {
         "Effect": "Allow",
         "Action": [
+          "secretsmanager:GetSecretValue",
           "ssm:DescribeParameters",
           "ssm:GetParameterHistory",
           "ssm:GetParametersByPath",
           "ssm:GetParameters",
-          "ssm:GetParameter"
+          "ssm:GetParameter",
+          "secretsmanager:ListSecrets"
+
         ],
         "Resource": "*"
       }
